@@ -1,0 +1,432 @@
+body
+{
+    margin: auto;
+    padding: 0;
+    width: 80%;
+    border: 2px solid gray;
+    border-top: 0;
+}
+
+.grid_row1
+{
+    grid-row: 1;
+    margin-bottom: 15px;
+}
+
+.grid_row2
+{
+    grid-row: 2;
+    margin-bottom: 15px;
+}
+
+.grid_column1
+{
+    grid-column: 1;
+}
+
+.grid_column2
+{
+    grid-column: 2;
+}
+
+.grid_column3
+{
+    grid-column: 3;
+}
+
+.grid_column1-2
+{
+    grid-column: 1 / 3;
+}
+
+.grid_column2-3
+{
+    grid-column: 2 / 4;
+}
+
+.logo-image
+{
+    cursor: pointer;
+}
+
+.header
+{
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid gray;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.user-info
+{
+    overflow: hidden;
+    font-size: 20px;
+}
+
+.phone-number
+{
+    color: gray;
+}
+
+.phone-number:hover
+{
+    color: red;
+}
+
+.user-contacts
+{
+    text-decoration: none;
+}
+
+.user-contacts:visited
+{
+    color: blue;
+}
+
+.user-logo
+{
+    width: 250px;
+    align-self: center;
+}
+
+.logo-image:hover
+{
+    box-shadow: 2px 2px 5px gray;
+}
+
+.logo-image:active
+{
+    transform: scale(1.25);
+}
+
+.logo-image
+{
+    border-radius: 150px;
+}
+
+.payment
+{
+    margin-top: 15px;
+    border-bottom: 2px solid gray;
+}
+
+.pay,
+.request,
+.card,
+.internet-bank,
+.request:checked ~ .payment-type-selector,
+.card:checked ~ .internet-bank-payment,
+.internet-bank:checked ~ .card-payment,
+.pay:checked ~ .request-payment
+{
+    display: none;
+}
+
+.pay_label,
+.request_label,
+.card_label,
+.internet-bank_label
+{
+    color: blue;
+    cursor: pointer;
+    margin: 15px;
+}
+
+.card_label:before
+{
+    content: '💳';
+}
+
+.internet-bank_label:before
+{
+    content: '💻';
+}
+
+.pay:checked ~ .payment-selector div .pay_label,
+.request:checked ~ .payment-selector div .request_label
+{
+    color: black;
+}
+
+.card:checked ~ div .card_label,
+.internet-bank:checked ~ div .internet-bank_label
+{
+    color: black;
+    background: rgb(192, 192, 192);
+    border-radius: 5px;
+}
+
+.payment-selector
+{
+    display: flex;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.payment-type-selector
+{
+    display: grid;
+    font-size: 22px;
+}
+
+.card-payment
+{
+    display: grid;
+    grid-template-columns: auto 1fr 1fr;
+}
+
+.card-info
+{
+    margin: 15px;
+    position: relative;
+    background: rgb(240, 240, 240);
+    width: 350px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px gray;
+}
+
+.visa-logo,
+.mastercard-logo
+{
+    position: absolute;
+    height: 50px;
+    width: 50px;
+}
+
+.visa-logo
+{
+    right: 75px;
+}
+
+.mastercard-logo
+{
+    right: 15px;
+}
+
+.card-number,
+.expired-date,
+.cvc
+{
+    position: absolute;
+    font-size: 16px;
+    padding: 5px;
+    padding-left: 10px;
+    border: 0;
+    border-bottom: 2px solid gray;
+    background: rgb(240, 240, 240);
+}
+
+.card-number
+{
+    top: 75px;
+    width: 300px;
+}
+
+.expired-date
+{
+    top: 125px;
+    width: 100px;
+}
+
+.cvc
+{
+    top: 125px;
+    width: 75px;
+    left: 150px;
+}
+
+.payment-info
+{
+    display: grid;
+}
+
+.input_payment-info
+{
+    width: 85%;
+    margin: 5px;
+    font-size: 15px;
+    padding: 5px;
+    padding-left: 10px;
+    border: 0;
+    border-bottom: 2px solid gray;
+}
+
+.internet-bank-payment,
+.request-payment
+{
+    display: grid;
+    margin: 15px;
+    font-size: 18px;
+}
+
+.header_internet-bank-payment
+{
+    font-size: 18px;
+}
+
+.input_caption
+{
+    font-size: 14px;
+    color: gray;
+    margin: 0;
+    padding-left: 15px;
+}
+
+.caption-input
+{
+    display: flex;
+}
+
+.radio_no-vat,
+.radio_vat10,
+.radio_vat18
+{
+    display: none;
+}
+
+.label_no-vat,
+.label_vat10,
+.label_vat18
+{
+    margin: 10px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.radio_no-vat:checked ~ .label_no-vat,
+.radio_vat10:checked ~ .label_vat10,
+.radio_vat18:checked ~ .label_vat18
+{
+    background: rgb(0, 224, 0);
+    border-radius: 10px;
+}
+
+.span_caption
+{
+    flex: 1;
+}
+
+.input_info
+{
+    justify-self: flex-end;
+    flex: 2;
+}
+
+.vat_info
+{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.button_send
+{
+    border: 2px solid black;
+    border-style: dashed;
+    background: none;
+    cursor: pointer;
+    margin: 15px;
+    font-size: 18px;
+    width: 50%;
+}
+
+.button_send:hover
+{
+    background: rgb(240, 240, 240);
+}
+
+.footer
+{
+    margin-top: 15px;
+}
+
+.header_footer
+{
+    text-align: center;
+}
+
+.products
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-info
+{
+    margin: 15px;
+    box-shadow: 2px 2px 5px rgb(192, 192, 192);
+    height: 100%;
+    flex: 30%;
+}
+
+.product-image
+{
+    width: 95%;
+    height: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.product-caption
+{
+    margin-left: 15px;
+    font-size: 16px;
+}
+
+.product-price
+{
+    font-size: 14px;
+    margin-left: 15px;
+    color: gray;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1000px)
+{
+    body
+    {
+        width: auto;
+    }
+
+    .products
+    {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .product-info
+    {
+        width: 45%;
+    }
+    
+    .header,
+    .payment-selector,
+    .payment-type-selector,
+    .card-payment,
+    .caption-input
+    {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 767px)
+{
+    body
+    {
+        width: auto;
+    }
+
+    .products
+    {
+        display: block;
+    }
+
+    .header,
+    .payment-selector,
+    .payment-type-selector,
+    .card-payment,
+    .caption-input
+    {
+        display: block;
+    }
+}

@@ -1,0 +1,267 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Страница оплаты</title>
+        <link rel="stylesheet" type="text/css" href="index.css">
+    </head>
+    <body>
+        <div class="header">
+            <div class="user-info">
+                <h2 class="username">ИП Семенов Семен Семёнович</h2><br>
+                <span class="phone-number">Телефон: +8-800-555-35-35</span><br>
+                <p>
+                    Сайт: <a href="#" class="user-contacts">www.semen-semyonich.ru</a><br>
+                    Почта: <a href="#" class="user-contacts">semen-semyonich@mail.ru</a><br><br>
+                    <a href="#" class="user-contacts">Информация о компании</a><br>
+                    <a href="#" class="user-contacts">Показать реквизиты</a>
+                </p>
+            </div>
+            <div class="user-logo">
+                <img alt="logo-image" src="./images/user-logo.svg" class="logo-image">
+            </div>
+        </div>
+
+        <div class="payment">
+            <input type="radio" name="payment" class="pay" id="pay" checked>
+            <input type="radio" name="payment" class="request" id="request">
+            <div class="payment-selector">
+                <div>
+                    <label for="pay" class="pay_label">Заплатить</label>
+                </div>
+                <div>
+                    <label for="request" class="request_label">Запросить платеж</label>
+                </div>
+            </div>
+            <div class="payment-type-selector">
+                <input type="radio" name="payment-type" class="card" id="card" checked>
+                <input type="radio" name="payment-type" class="internet-bank" id="internet-bank">
+                <div class="grid_row1">
+                    <label for="card" class="card_label">С карты любого банка</label>
+                </div>
+                <div class="grid_row1">
+                    <label for="internet-bank" class="internet-bank_label">Из своего интернет-банка</label>
+                </div>
+                <div class="card-payment grid_row2 grid_column1-2">
+                    <div class="card-info">
+                        <img alt="mastercard-logo" src="./images/mastercard.svg" class="mastercard-logo">
+                        <img alt="visa-logo" src="./images/visa.svg" class="visa-logo">
+                        <input type="text" placeholder="Номер карты" class="card-number">
+                        <input type="text" placeholder="ММ/ГГ" class="expired-date">
+                        <input type="text" placeholder="CVC" class="cvc">
+                    </div>
+                    <div class="payment-info grid_column2-3">
+                        <div class="caption-input">
+                            <div class="span_caption">
+                                <span>Сумма</span>
+                            </div>
+                            <div class="input_info">
+                                <input type="text" class="input_payment-info"
+                                placeholder="От 1000 до 75000&#8381;">
+                            </div>
+                        </div>
+                        <div class="caption-input">
+                            <div class="span_caption">
+                                <span>Комментарий</span>
+                            </div>
+                            <div class="input_info">
+                                <input type="text" class="input_payment-info"
+                                placeholder="До 150 символов">
+                            </div>
+                        </div>
+                        <div class="caption-input">
+                            <div class="span_caption">
+                                <span>Ваша эл.почта</span>
+                            </div>
+                            <div class="input_info">
+                                <input type="text" class="input_payment-info"
+                                placeholder="Для квитанции об оплате">
+                            </div>
+                        </div>
+                    </div>
+                    <input type="button" value="Заплатить" class="button_send">
+                </div>
+                <div class="internet-bank-payment grid_column1-2">
+                    <h2 class="header_internet-bank-payment">
+                        Сформируйте платёжку и загрузите её в свой банк для подписи
+                    </h2>
+                    <div class="grid_column1-2">
+                        <div class="caption-input">
+                            <div class="span_caption">
+                                <span>От кого</span>
+                            </div>
+                            <div class="input_caption input_info">
+                                <input type="text" class="input_payment-info"
+                                placeholder="ИНН или название плательщика">
+                            </div>
+                        </div>
+                        <div class="caption-input">
+                            <div class="span_caption">
+                                <span>БИК</span>
+                            </div>
+                            <div class="input_caption input_info">
+                                <input type="text" class="input_payment-info"
+                                placeholder="Банковский идентификационный номер">
+                            </div>
+                        </div>
+                        <div class="caption-input">
+                            <div class="span_caption">
+                                <span>Номер счета</span>
+                            </div>
+                            <div class="input_caption input_info">
+                                <input type="text" class="input_payment-info" placeholder="Номер счета"><br>
+                                <span class="input_caption">Назначение платежа</span>
+                            </div>
+                        </div>
+                        <div class="caption-input vat_info">
+                            <div class="span_caption">
+                                <span>НДС</span>
+                            </div>
+                            <div class="input_caption input_info">
+                                <input type="radio" class="radio_no-vat" name="vat" id="no-vat" checked>
+                                <input type="radio" class="radio_vat10" name="vat" id="vat10">
+                                <input type="radio" class="radio_vat18" name="vat" id="vat18">
+                                <label for="no-vat" class="label_no-vat">Без НДС</label>
+                                <label for="vat10" class="label_vat10">НДС 10%</label>
+                                <label for="vat18" class="label_vat18">НДС 18%</label>
+                            </div>
+                        </div>
+                        <div class="caption-input">
+                            <div class="span_caption">
+                                <span>За что</span>
+                            </div>
+                            <div class="input_info">
+                                <input type="text" class="input_payment-info" placeholder="Например, оказание услуг">
+                            </div>
+                        </div>
+                        <div class="caption-input">
+                            <div class="span_caption">
+                                <span>Сколько</span>
+                            </div>
+                            <div class="input_info">
+                                <input type="text" class="input_payment-info" placeholder="Сколько">
+                            </div>
+                        </div>
+                    </div>
+                    <input type="button" value="Получить файл для интернет банка" class="button_send">
+                </div>
+            </div>
+
+            <div class="request-payment">
+                <h2 class="header_internet-bank-payment">
+                        Создайте платёжку, а ИП Семенов Семен Семёнович подпишет её у себя в
+                    интернет-банке
+                </h2>
+                <div class="grid_column1-2">
+                    <div class="caption-input">
+                        <div class="span_caption">
+                            <span>ИНН получателя</span>
+                        </div>
+                        <div class="input_caption input_info">
+                            <input type="text" class="input_payment-info"
+                            placeholder="ИНН или название получателя">
+                        </div>
+                    </div>
+                    <div class="caption-input">
+                        <div class="span_caption">
+                            <span>БИК</span>
+                        </div>
+                        <div class="input_caption input_info">
+                            <input type="text" class="input_payment-info"
+                            placeholder="Банковский идентификационный номер">
+                        </div>
+                    </div>
+                    <div class="caption-input">
+                        <div class="span_caption">
+                            <span>Номер счета</span>
+                        </div>
+                        <div class="input_caption input_info">
+                            <input type="text" class="input_payment-info" placeholder="Номер счета"><br>
+                            <span class="input_caption">Назначение платежа</span>
+                        </div>
+                    </div>
+                    <div class="caption-input vat_info">
+                        <div class="span_caption">
+                            <span>НДС</span>
+                        </div>
+                        <div class="input_caption input_info">
+                            <input type="radio" class="radio_no-vat" name="request-vat" id="request_no-vat" checked>
+                            <input type="radio" class="radio_vat10" name="request-vat" id="request_vat10">
+                            <input type="radio" class="radio_vat18" name="request-vat" id="request_vat18">
+                            <label for="request_no-vat" class="label_no-vat">Без НДС</label>
+                            <label for="request_vat10" class="label_vat10">НДС 10%</label>
+                            <label for="request_vat18" class="label_vat18">НДС 18%</label>
+                        </div>
+                    </div>
+                    <div class="caption-input">
+                        <div class="span_caption">
+                            <span>За что</span>
+                        </div>
+                        <div class="input_info">
+                            <input type="text" class="input_payment-info" placeholder="Например, оказание услуг">
+                        </div>
+                    </div>
+                    <div class="caption-input">
+                        <div class="span_caption">
+                            <span>Сколько</span>
+                        </div>
+                        <div class="input_info">
+                            <input type="text" class="input_payment-info" placeholder="Сколько">
+                        </div>
+                    </div>
+                    <div class="caption-input">
+                        <div class="span_caption">
+                            <span>За что</span>
+                        </div>
+                        <div class="input_info">
+                            <input type="text" class="input_payment-info" placeholder="Например, оказание услуг">
+                        </div>
+                    </div>
+                    <div class="caption-input">
+                        <div class="span_caption">
+                            <span>Номер телефона</span>
+                        </div>
+                        <div class="input_info">
+                            <input type="text" class="input_payment-info" placeholder="+7">
+                            <a href="#" class="input_payment_info user-contacts">
+                                Оставляя телефон, вы соглашаетесь на обработку персональных данных
+                            </a>
+                        </div>
+                    </div>
+                    <div class="caption-input">
+                        <div class="span_caption">
+                            <span>Эл.почта</span>
+                        </div>
+                        <div class="input_info">
+                            <input type="text" class="input_payment-info" placeholder="Для уведомления об оплате">
+                        </div>
+                    </div>
+                </div>
+                <input type="button" value="Создать платёж" class="button_send">
+            </div>
+        </div>
+
+        <div class="footer">
+            <h1 class="header_footer">
+                О компании ИП Семенов Семен Семёнович
+            </h1>
+            <div class="products">
+                <div class="product-info">
+                    <img class="product-image" alt="raccoon-1" src="./images/raccoon1.jpg">
+                    <span class="product-caption">Енот самец 1 год</span><br>
+                    <span class="product-price">29000 руб.</span>
+                </div>
+                <div class="product-info">
+                    <img class="product-image" alt="raccoon-2" src="./images/raccoon2.jpg">
+                    <span class="product-caption">Енот самец 9 месяцев</span><br>
+                    <span class="product-price">35000 руб.</span>
+                </div>
+                <div class="product-info">
+                    <img class="product-image" alt="raccoon-3" src="./images/raccoon3.jpg">
+                    <span class="product-caption">Енот самец 1.5 года</span><br>
+                    <span class="product-price">20000 руб.</span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
