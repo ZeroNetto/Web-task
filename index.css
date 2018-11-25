@@ -336,12 +336,12 @@ body
     background: rgb(240, 240, 240);
 }
 
-.footer
+.about-us
 {
     margin-top: 15px;
 }
 
-.header_footer
+.header_about-us
 {
     text-align: center;
 }
@@ -379,6 +379,29 @@ body
     font-size: 14px;
     margin-left: 15px;
     color: gray;
+}
+
+.contacts-links
+{
+    margin: 15px;
+}
+
+.contacts-image
+{
+    width: 16px;
+    height: 16px;
+    vertical-align: -10%;
+}
+
+.contacts
+{
+    display: inline;
+    background: rgb(224, 224, 224);
+    font-size: 18px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 15px;
+    margin-right: 5px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1000px)
