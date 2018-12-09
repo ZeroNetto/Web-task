@@ -7,13 +7,13 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./request-payment-form.component.css']
 })
 export class RequestPaymentFormComponent implements OnInit {
-  PaymentInfo: FormGroup;
-  SumbitActive: Boolean;
+  RequestPaymentInfo: FormGroup;
+  RequestSumbitActive: Boolean;
 
   constructor() { }
 
   ngOnInit() {
-    this.PaymentInfo = new FormGroup({
+    this.RequestPaymentInfo = new FormGroup({
       fromINN: new FormControl('fromINN', [
         Validators.required,
         Validators.pattern('^\d{10}|\d{12}')]),
@@ -32,6 +32,6 @@ export class RequestPaymentFormComponent implements OnInit {
         Validators.required,
         Validators.pattern('^\+?(7|8|9)\d{9}')])
       });
-      this.SumbitActive = false;
+      this.RequestSumbitActive = false;
   }
 }

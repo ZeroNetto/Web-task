@@ -8,8 +8,8 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
 })
 export class CardPaymentFormComponent implements OnInit {
   CardInfo: FormGroup;
-  PaymentInfo: FormGroup;
-  SumbitActive: Boolean;
+  CardPaymentInfo: FormGroup;
+  CardSumbitActive: Boolean;
 
   constructor() { }
 
@@ -25,7 +25,7 @@ export class CardPaymentFormComponent implements OnInit {
         Validators.required,
         Validators.pattern('^\d{3}')])});
 
-    this.PaymentInfo = new FormGroup({
+    this.CardPaymentInfo = new FormGroup({
       sum: new FormControl('sum', [
         Validators.required,
         Validators.pattern('^\d{4}|[0-6]\d{4}|7[0-4]\d{3}|75000')
@@ -36,6 +36,6 @@ export class CardPaymentFormComponent implements OnInit {
         Validators.email
         ])
     });
-    this.SumbitActive = false;
+    this.CardSumbitActive = false;
   }
 }

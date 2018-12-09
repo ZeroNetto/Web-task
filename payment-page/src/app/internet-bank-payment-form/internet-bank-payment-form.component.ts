@@ -7,13 +7,13 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./internet-bank-payment-form.component.css']
 })
 export class InternetBankPaymentFormComponent implements OnInit {
-  PaymentInfo: FormGroup;
-  SumbitActive: Boolean;
+  InternetPaymentInfo: FormGroup;
+  InternetSumbitActive: Boolean;
 
   constructor() { }
 
   ngOnInit() {
-    this.PaymentInfo = new FormGroup({
+    this.InternetPaymentInfo = new FormGroup({
       fromINN: new FormControl('fromINN', [
         Validators.required,
         Validators.pattern('^\d{10}|\d{12}')]),
@@ -29,6 +29,6 @@ export class InternetBankPaymentFormComponent implements OnInit {
         Validators.required,
         Validators.pattern('^\d{4}|[1-6]\d{4}|7[0-4]\d{3}|75000')])
       });
-      this.SumbitActive = false;
+      this.InternetSumbitActive = false;
   }
 }
