@@ -14,7 +14,7 @@ export class RequestPaymentFormComponent implements OnInit {
 
   ngOnInit() {
     this.RequestPaymentInfo = new FormGroup({
-      fromINN: new FormControl('fromINN', [
+      toINN: new FormControl('fromINN', [
         Validators.required,
         Validators.pattern('^\d{10}|\d{12}')]),
       BIK: new FormControl('BIK', [
@@ -30,7 +30,11 @@ export class RequestPaymentFormComponent implements OnInit {
         Validators.pattern('^\d{4}|[1-6]\d{4}|7[0-4]\d{3}|75000')]),
       telephoneNumber: new FormControl('telephoneNumber', [
         Validators.required,
-        Validators.pattern('^\+?(7|8|9)\d{9}')])
+        Validators.pattern('^[+]?(7|8)9\d{9}$')]),
+        email: new FormControl('email', [
+          Validators.required,
+          Validators.email
+          ])
       });
       this.RequestSumbitActive = false;
   }

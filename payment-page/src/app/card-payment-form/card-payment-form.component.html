@@ -1,3 +1,132 @@
-<p>
-  card-payment-form works!
-</p>
+<!DOCTYPE HTML>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Страница оплаты</title>
+    </head>
+    <body>
+        <div class="header">
+            <div class="user-info">
+                <h2 class="username">ИП Семенов Семен Семёнович</h2><br>
+                <span class="phone-number">Телефон: +8-800-555-35-35</span><br>
+                <p>
+                    Сайт: <a href="#" class="user-contacts">www.semen-semyonich.ru</a><br>
+                    Почта: <a href="#" class="user-contacts">semen-semyonich@mail.ru</a><br><br>
+                    <a href="#" class="user-contacts">Информация о компании</a><br>
+                    <a href="#" class="user-contacts">Показать реквизиты</a>
+                </p>
+            </div>
+            <div class="user-logo">
+                <img alt="logo-image" src="assets/images/user-logo.svg" class="logo-image">
+            </div>
+        </div>
+
+        <div class="payment">
+            <input type="radio" name="payment" class="pay" id="pay" checked>
+            <input type="radio" name="payment" class="request" id="request">
+            <div class="payment-selector">
+                <div>
+                    <label for="pay" class="pay_label">Заплатить</label>
+                </div>
+                <div>
+                    <label for="request" class="request_label" routerLink="/request-payment">Запросить платеж</label>
+                </div>
+            </div>
+            <div class="payment-type-selector">
+                <input type="radio" name="payment-type" class="card" id="card" checked>
+                <input type="radio" name="payment-type" class="internet-bank" id="internet-bank">
+                <div class="grid_row1">
+                    <label for="card" class="card_label" routerLink="/card-payment">С карты любого банка</label>
+                </div>
+                <div class="grid_row1">
+                    <label for="internet-bank" class="internet-bank_label" routerLink="/internet-bank-payment">
+                        Из своего интернет-банка
+                    </label>
+                </div>
+                <div class="card-payment grid_row2 grid_column1-2">
+                    <div class="card-info" formGroup="CardInfo">
+                    <img alt="mastercard-logo" src="assets/images/mastercard.svg" class="mastercard-logo">
+                    <img alt="visa-logo" src="assets/images/visa.svg" class="visa-logo">
+                    <input type="text" formControlName="cardNumber"
+                        placeholder="Номер карты" class="card-number">
+                    <div *ngIf="CardInfo.get('cardNumber').hasError('required')">
+                      <span>Ошибка</span>
+                    </div>
+                    <input type="text" formControlName="dateExpired"
+                        placeholder="ММ/ГГ" class="expired-date">
+                    <input type="text" formControlName="cvc"
+                        placeholder="CVC" class="cvc">
+                    </div>
+                    <div class="payment-info grid_column2-3" formGroup="CardPaymentInfo">
+                        <div class="caption-input">
+                            <div class="span_caption">
+                                <span>Сумма</span>
+                            </div>
+                            <div class="input_info">
+                                <input type="text" class="input_payment-info"
+                                placeholder="От 1000 до 75000&#8381;" formControlName="sum">
+                            </div>
+                        </div>
+                        <div class="caption-input">
+                            <div class="span_caption">
+                                <span>Комментарий</span>
+                            </div>
+                            <div class="input_info">
+                                <input type="text" class="input_payment-info"
+                                placeholder="До 150 символов" formControlName="comments">
+                            </div>
+                        </div>
+                        <div class="caption-input">
+                            <div class="span_caption">
+                                <span>Ваша эл.почта</span>
+                            </div>
+                            <div class="input_info">
+                                <input type="text" class="input_payment-info"
+                                placeholder="Для квитанции об оплате" formControlName="email">
+                            </div>
+                        </div>
+                        <input type="submit" value="Заплатить" class="button_send">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-us">
+            <h1 class="header_about-us">
+                О компании ИП Семенов Семен Семёнович
+            </h1>
+            <div class="products">
+                <div class="product-info">
+                    <img class="product-image" alt="raccoon-1" src="assets/images/raccoon1.jpg">
+                    <span class="product-caption">Енот самец 1 год</span><br>
+                    <span class="product-price">29000 руб.</span>
+                </div>
+                <div class="product-info">
+                    <img class="product-image" alt="raccoon-2" src="assets/images/raccoon2.jpg">
+                    <span class="product-caption">Енот самец 9 месяцев</span><br>
+                    <span class="product-price">35000 руб.</span>
+                </div>
+                <div class="product-info">
+                    <img class="product-image" alt="raccoon-3" src="assets/images/raccoon3.jpg">
+                    <span class="product-caption">Енот самец 1.5 года</span><br>
+                    <span class="product-price">20000 руб.</span>
+                </div>
+            </div>
+
+            <div class="contacts-links">
+                <div class="contacts">
+                    <img alt="twitter-logo" class="contacts-image" src="assets/images/twitter.svg">
+                    <a href="#" class="user-contacts">Твитнуть</a>
+                </div>
+                <div class="contacts">
+                    <img alt="facebook-logo" class="contacts-image" src="assets/images/facebook.svg">
+                    <a href="#" class="user-contacts">Поделиться</a>
+                </div>
+                <div class="contacts">
+                    <img alt="vk-logo" class="contacts-image" src="assets/images/vk.svg">
+                    <a href="#" class="user-contacts">Поделиться</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
