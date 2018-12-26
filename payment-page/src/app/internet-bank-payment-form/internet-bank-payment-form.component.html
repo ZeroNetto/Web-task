@@ -44,7 +44,7 @@
                     </label>
                 </div>
 
-                <div class="internet-bank-payment grid_column1-2">
+                <form class="internet-bank-payment grid_column1-2">
                     <h2 class="header_internet-bank-payment">
                         Сформируйте платёжку и загрузите её в свой банк для подписи
                     </h2>
@@ -54,8 +54,9 @@
                                 <span>От кого</span>
                             </div>
                             <div class="input_caption input_info">
-                                <input type="text" class="input_payment-info"
-                                placeholder="ИНН или название плательщика" formControlName="fromINN">
+                                <input type="text" id="INN" required class="input_payment-info"
+                                placeholder="ИНН или название плательщика"
+                                pattern="^\d{10}|\d{12}" (focusout)="ChangeSubmitState()">
                             </div>
                         </div>
                         <div class="caption-input">
@@ -63,8 +64,10 @@
                                 <span>БИК</span>
                             </div>
                             <div class="input_caption input_info">
-                                <input type="text" class="input_payment-info"
-                                placeholder="Банковский идентификационный номер" formControlName="BIK">
+                                <input type="text" class="input_payment-info" id="BIK"
+                                    placeholder="Банковский идентификационный номер" required
+                                    pattern="\d{9}"
+                                    (focusout)="ChangeSubmitState()">
                             </div>
                         </div>
                         <div class="caption-input">
@@ -72,8 +75,10 @@
                                 <span>Номер счета</span>
                             </div>
                             <div class="input_caption input_info">
-                                <input type="text" class="input_payment-info" placeholder="Номер счета"
-                                    formControlName="accountNumber"><br>
+                                <input type="text" id="accountNumber" class="input_payment-info"
+                                    placeholder="Номер счета" required
+                                    pattern="^\d{20}"
+                                    (focusout)="ChangeSubmitState()"><br>
                                 <span class="input_caption">Назначение платежа</span>
                             </div>
                         </div>
@@ -95,8 +100,9 @@
                                 <span>За что</span>
                             </div>
                             <div class="input_info">
-                                <input type="text" class="input_payment-info" placeholder="Например, оказание услуг"
-                                    formControlName="forWhat">
+                                <input type="text" class="input_payment-info" id="forWhat"
+                                    placeholder="Например, оказание услуг" required
+                                    (focusout)="ChangeSubmitState()">
                             </div>
                         </div>
                         <div class="caption-input">
@@ -104,13 +110,16 @@
                                 <span>Сколько</span>
                             </div>
                             <div class="input_info">
-                                <input type="text" class="input_payment-info" placeholder="Сколько"
-                                    formControlName="count">
+                                <input type="text" id="sum" class="input_payment-info"
+                                    placeholder="Сколько" required
+                                    pattern="^\d{4}|[1-6]\d{4}|7[0-4]\d{3}|75000"
+                                    (focusout)="ChangeSubmitState()">
                             </div>
                         </div>
                     </div>
-                    <input type="button" value="Получить файл для интернет банка" class="button_send">
-                </div>
+                    <input type="submit" id="submit" value="Получить файл для интернет банка"
+                        class="button_send" disabled (click)="GetFile()">
+                </form>
             </div>
         </div>
 

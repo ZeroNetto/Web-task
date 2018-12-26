@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Страница оплаты</title>
+        <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
     </head>
     <body>
         <div class="header">
@@ -43,28 +44,28 @@
                         Из своего интернет-банка
                     </label>
                 </div>
-                <div class="card-payment grid_row2 grid_column1-2">
-                    <div class="card-info" formGroup="CardInfo">
-                    <img alt="mastercard-logo" src="assets/images/mastercard.svg" class="mastercard-logo">
-                    <img alt="visa-logo" src="assets/images/visa.svg" class="visa-logo">
-                    <input type="text" formControlName="cardNumber"
-                        placeholder="Номер карты" class="card-number">
-                    <div *ngIf="CardInfo.get('cardNumber').hasError('required')">
-                      <span>Ошибка</span>
+                <form id="CardInfo" class="card-payment grid_row2 grid_column1-2">
+                    <div class="card-info">
+                        <img alt="mastercard-logo" src="assets/images/mastercard.svg" class="mastercard-logo">
+                        <img alt="visa-logo" src="assets/images/visa.svg" class="visa-logo">
+                        <input type="text" name="cardNumber" id="cardNumber"
+                            placeholder="Номер карты" class="card-number"
+                            (focusout)="ChangeSubmitState()" pattern="^[0-9]{16}" required>
+                        <input type="text" id="dateExpired" name="dateExpired" class="expired-date" required
+                            pattern="^(0[1-9]|1[0-2])/(0[1-9]|[12]\d|3[01])" placeholder="ММ/ГГ">
+                        <input type="text" id="cvc" pattern="^\d{3}" placeholder="CVC" class="cvc" required
+                            (focusout)="ChangeSubmitState()">
                     </div>
-                    <input type="text" formControlName="dateExpired"
-                        placeholder="ММ/ГГ" class="expired-date">
-                    <input type="text" formControlName="cvc"
-                        placeholder="CVC" class="cvc">
-                    </div>
-                    <div class="payment-info grid_column2-3" formGroup="CardPaymentInfo">
+                    <div class="payment-info grid_column2-3">
                         <div class="caption-input">
                             <div class="span_caption">
                                 <span>Сумма</span>
                             </div>
                             <div class="input_info">
-                                <input type="text" class="input_payment-info"
-                                placeholder="От 1000 до 75000&#8381;" formControlName="sum">
+                                <input type="text" id="sum" class="input_payment-info" name="sum"
+                                placeholder="От 1000 до 75000&#8381;"
+                                pattern="^\d{4}|[0-6]\d{4}|7[0-4]\d{3}|75000" required
+                                (focusout)="ChangeSubmitState()">
                             </div>
                         </div>
                         <div class="caption-input">
@@ -72,8 +73,9 @@
                                 <span>Комментарий</span>
                             </div>
                             <div class="input_info">
-                                <input type="text" class="input_payment-info"
-                                placeholder="До 150 символов" formControlName="comments">
+                                <input type="text" id="comments" class="input_payment-info" name="comments"
+                                placeholder="До 150 символов" pattern=".{0,150}"
+                                (focusout)="ChangeSubmitState()">
                             </div>
                         </div>
                         <div class="caption-input">
@@ -81,13 +83,15 @@
                                 <span>Ваша эл.почта</span>
                             </div>
                             <div class="input_info">
-                                <input type="text" class="input_payment-info"
-                                placeholder="Для квитанции об оплате" formControlName="email">
+                                <input type="email" id="email" class="input_payment-info" name="email"
+                                placeholder="Для квитанции об оплате" required
+                                (focusout)="ChangeSubmitState()">
                             </div>
                         </div>
-                        <input type="submit" value="Заплатить" class="button_send">
+                        <input type="submit" id="submit" value="Заплатить" class="button_send"
+                            (click)="SaveOnDatabase()" disabled>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
 

@@ -45,7 +45,7 @@
                 </div>
             </div>
 
-            <div class="request-payment">
+            <form class="request-payment">
                 <h2 class="header_internet-bank-payment">
                     Создайте платёжку, а ИП Семенов Семен Семёнович подпишет её у себя в
                 интернет-банке
@@ -56,8 +56,9 @@
                             <span>ИНН получателя</span>
                         </div>
                         <div class="input_caption input_info">
-                            <input type="text" class="input_payment-info"
-                            placeholder="ИНН или название получателя" formControlName="toINN">
+                            <input type="text" id="INN" required class="input_payment-info"
+                            placeholder="ИНН или название получателя"
+                            pattern="\d{10}|\d{12}" (focusout)="ChangeSubmitState()">
                         </div>
                     </div>
                     <div class="caption-input">
@@ -65,8 +66,10 @@
                             <span>БИК</span>
                         </div>
                         <div class="input_caption input_info">
-                            <input type="text" class="input_payment-info"
-                            placeholder="Банковский идентификационный номер" formControlName="BIK">
+                            <input type="text" class="input_payment-info" id="BIK"
+                            placeholder="Банковский идентификационный номер" required
+                            pattern="\d{9}"
+                            (focusout)="ChangeSubmitState()">
                         </div>
                     </div>
                     <div class="caption-input">
@@ -74,8 +77,9 @@
                             <span>Номер счета</span>
                         </div>
                         <div class="input_caption input_info">
-                            <input type="text" class="input_payment-info" placeholder="Номер счета"
-                                formControlName="accountNumber"><br>
+                            <input type="text" id="accountNumber" class="input_payment-info"
+                                placeholder="Номер счета" pattern="\d{20}" required
+                                (focusout)="ChangeSubmitState()"><br>
                             <span class="input_caption">Назначение платежа</span>
                         </div>
                     </div>
@@ -97,8 +101,9 @@
                             <span>За что</span>
                         </div>
                         <div class="input_info">
-                            <input type="text" class="input_payment-info" placeholder="Например, оказание услуг"
-                                formControlName="forWhat">
+                            <input type="text" class="input_payment-info" id="forWhat"
+                                placeholder="Например, оказание услуг" required
+                                (focusout)="ChangeSubmitState()">
                         </div>
                     </div>
                     <div class="caption-input">
@@ -106,8 +111,9 @@
                             <span>Сколько</span>
                         </div>
                         <div class="input_info">
-                            <input type="text" class="input_payment-info" placeholder="Сколько"
-                                formControlName="count">
+                            <input type="text" required id="sum" class="input_payment-info"
+                                placeholder="Сколько" pattern="^\d{4}|[1-6]\d{4}|7[0-4]\d{3}|75000"
+                                (focusout)="ChangeSubmitState()">
                         </div>
                     </div>
                     <div class="caption-input">
@@ -115,8 +121,8 @@
                             <span>Номер телефона</span>
                         </div>
                         <div class="input_info">
-                            <input type="text" class="input_payment-info" placeholder="+7"
-                                formControlName="telephoneNumber">
+                            <input type="tel" id="phoneNumber" class="input_payment-info" placeholder="+7"
+                                required (focusout)="ChangeSubmitState()">
                             <a href="#" class="input_payment_info user-contacts">
                                 Оставляя телефон, вы соглашаетесь на обработку персональных данных
                             </a>
@@ -127,13 +133,14 @@
                             <span>Эл.почта</span>
                         </div>
                         <div class="input_info">
-                            <input type="text" class="input_payment-info" placeholder="Для уведомления об оплате"
-                                formControlName="email">
+                            <input type="email" class="input_payment-info" id="email"
+                                required placeholder="Для уведомления об оплате">
                         </div>
                     </div>
                 </div>
-                <input type="button" value="Создать платёж" class="button_send">
-            </div>
+                <input type="submit" id="submit" value="Создать платёж" class="button_send" disabled
+                    (click)="SendRequest()">
+            </form>
         </div>
 
         <div class="about-us">

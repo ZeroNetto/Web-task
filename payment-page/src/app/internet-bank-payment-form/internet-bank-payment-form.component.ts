@@ -7,28 +7,31 @@ import { Validators, FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./internet-bank-payment-form.component.css']
 })
 export class InternetBankPaymentFormComponent implements OnInit {
-  InternetPaymentInfo: FormGroup;
-  InternetSumbitActive: Boolean;
 
   constructor() { }
 
-  ngOnInit() {
-    this.InternetPaymentInfo = new FormGroup({
-      fromINN: new FormControl('fromINN', [
-        Validators.required,
-        Validators.pattern('^\d{10}|\d{12}')]),
-      BIK: new FormControl('BIK', [
-        Validators.required,
-        Validators.pattern('\d{9}')]),
-      accountNumber: new FormControl('accountNumber', [
-        Validators.required,
-        Validators.pattern('^\d{20}')]),
-      VAT: new FormControl('VAT', Validators.required),
-      forWhat: new FormControl('forWhat', Validators.required),
-      count: new FormControl('count', [
-        Validators.required,
-        Validators.pattern('^\d{4}|[1-6]\d{4}|7[0-4]\d{3}|75000')])
-      });
-      this.InternetSumbitActive = false;
+  ngOnInit() { }
+
+  public ChangeSubmitState(){
+    const submitField = document.getElementById('submit') as any;
+    const inn = document.getElementById('INN') as any;
+    const bik = document.getElementById('BIK') as any;
+    const accountNumber = document.getElementById('accountNumber') as any;
+    const forWhat = document.getElementById('forWhat') as any;
+    const sum = document.getElementById('sum') as any;
+
+    if(inn.checkValidity() &&
+       bik.checkValidity() &&
+       accountNumber.checkValidity() &&
+       forWhat.checkValidity() &&
+       sum.checkValidity()){
+        submitField.disabled = false;
+       } else{
+        submitField.disabled = true;
+       }
+  }
+
+  public GetFile(){
+
   }
 }
